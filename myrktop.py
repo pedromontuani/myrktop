@@ -87,8 +87,9 @@ def get_cpu_info():
     return cpu_loads, cpu_freqs
 
 def get_gpu_info(gpu_path):
-    gpu_load_path = f"{gpu_path}/load"
-    gpu_freq_path = f"{gpu_path}/cur_freq"
+    gpu_load_path = os.path.join(gpu_path, "load")
+    gpu_freq_path = os.path.join(gpu_path, "cur_freq")
+
     if not gpu_path or not os.path.exists(gpu_load_path) or not os.path.exists(gpu_freq_path):
         return None, None
     try:
@@ -108,8 +109,9 @@ def get_gpu_info(gpu_path):
     return gpu_load, gpu_freq
 
 def get_npu_info(npu_path):
-    npu_load_path = f"{npu_path}/load"
-    npu_freq_path = f"{npu_path}/cur_freq"
+    npu_load_path = os.path.join(npu_path, "load")
+    npu_freq_path =  os.path.join(npu_path, "cur_freq")
+
     if not npu_path or not os.path.exists(npu_load_path) or not os.path.exists(npu_freq_path):
         return None, None
     try:
