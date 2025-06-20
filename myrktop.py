@@ -109,7 +109,7 @@ def get_gpu_info(gpu_path):
     return gpu_load, gpu_freq
 
 def get_npu_info(npu_path):
-    npu_load_path = os.path.join(npu_path, "load")
+    npu_load_path = "/sys/kernel/debug/rknpu/load"
     npu_freq_path =  os.path.join(npu_path, "cur_freq")
 
     if not npu_path or not os.path.exists(npu_load_path) or not os.path.exists(npu_freq_path):
